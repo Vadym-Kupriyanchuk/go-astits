@@ -454,7 +454,7 @@ func (m *Muxer) generatePMT() error {
 		Header: PacketHeader{
 			HasPayload:                true,
 			PayloadUnitStartIndicator: true,
-			PID:                       m.pmtPID,
+			PID:                       m.pmtPID, // FIXME multiple programs support
 			ContinuityCounter:         uint8(m.pmtCC.inc()),
 		},
 		Payload: m.buf.Bytes(),
